@@ -8,8 +8,51 @@ Synopsis
 
 For the purposes of this tool, a "blank line" is a line containing only whitespace characters.
 
-To have blank lines use the same leading whitespace intent and the most recent non-blank line, use
-``--format=leading``::
+*Intentionally Blank* can apply one or more formatters to a text file for the purposes of modifying
+the arrangement or representation of whitespace. 
+
+To get command-line help, use the ``--help`` option::
+
+  $ intentionally-blank --help
+  Usage: intentionally-blank [OPTIONS] COMMAND [ARGS]...
+  
+  Options:
+    --verbosity [CRITICAL|ERROR|WARNING|INFO|DEBUG|NOTSET]
+                                    The logging level to use.
+    --version                       Show the version and exit.
+    --help                          Show this message and exit.
+  
+  Commands:
+    describe-formatter
+    format
+    list-formatters
+
+
+To list the available formatters, used the ``list-formatters`` command::
+
+  $ intentionally-blank list-formatters
+  empty
+  identity
+  leading
+  visible
+
+To describe the action of particular formatter, use the ``describe-formatter`` command::
+
+  $ intentionally-blank describe-formatter --format=leading
+  Blank lines have leading whitespace equal to that on the previous non-blank line.
+  
+To actually reformat a text file, we can use the ``format`` command. To get help on a particular
+command, like ``format``, use the command and the ``--help`` option::
+
+  $ intentionally-blank format --help
+  Usage: intentionally-blank format [OPTIONS] INPUT OUTPUT
+  
+  Options:
+    --format [empty|identity|leading|visible]
+    --help                          Show this message and exit.
+
+  
+Now, use the ``format`` command to adjust whitespace::
 
   $ intentionally-blank format --format=leading infile.txt outfile.txt
 
@@ -18,3 +61,15 @@ To have blank lines be completely empty save for the terminating newline sequenc
 ``--format=empty``::
 
   $ intentionally-blank format --format=empty infile.txt outfile.txt
+
+Multiple ``--format`` options can be provided, and they will be applied in the order given. Here we
+apply the "leading" format, and then the "visible" format which makes whitespace characters
+visible::
+
+  $ intentionally-blank format --format=leading --format=visible infile.txt outfile.txt
+
+Either the INPUT or OUTPUT positional arguments can be replaced with a hyphen ``-`` to cause input
+to be read from stdin or output to be written to stdout::
+
+  $ intentionally-blank format --format=leading --format=visible infile.txt -
+  

@@ -64,7 +64,7 @@ setup(
             'identity = intentionally_blank.ext.formatters.identity:Formatter',
             'leading = intentionally_blank.ext.formatters.leading:Formatter',
             'empty = intentionally_blank.ext.formatters.empty:Formatter',
-            #'visible = intentionally_blank.ext.formatters.visible:Formatter',
+            'visible = intentionally_blank.ext.formatters.visible:Formatter',
         ]
     },
     long_description=LONG_DESCRIPTION,
