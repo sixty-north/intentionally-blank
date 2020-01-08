@@ -11,8 +11,13 @@ INTENTIONALLY_BLANK_FORMATTER = "intentionally_blank.formatter"
 
 class Formatter(Extension):
 
-    def __init__(self, name):
+    def __init__(self, name, tab_size):
         super().__init__(name)
+        self._tab_size = tab_size
+        
+    @property
+    def tab_size(self):
+        return self._tab_size
 
     @abstractmethod
     def format(self, lines):
@@ -41,12 +46,13 @@ class FormatterExtensionError(ExtensionError):
     pass
 
 
-def create_formatter(formatter_name):
+def create_formatter(formatter_name, tab_size):
         driver = create_extension(
             kind="formatter",
             namespace=INTENTIONALLY_BLANK_FORMATTER,
             name=formatter_name,
             exception_type=FormatterExtensionError,
+            tab_size=tab_size,
         )
         return driver
 

@@ -5,6 +5,7 @@ from exit_codes import ExitCode
 import click
 
 from intentionally_blank import api
+from intentionally_blank.api import DEFAULT_TAB_SIZE
 from intentionally_blank.formatter import formatter_names
 
 from .version import __version__
@@ -43,10 +44,11 @@ def cli(verbosity):
 
 @cli.command(name="format")
 @click.option("--format", type=click.Choice(fmt_names, case_sensitive=True), multiple=True)
+@click.option("--tab-size",  default=DEFAULT_TAB_SIZE, callback=_validate_positive_integer, help="Tab size in spaces")
 @click.argument('input', type=click.File('rt'))
 @click.argument('output', type=click.File('wt'))
-def format(input, output, format):
-    api.transform(in_file=input, out_file=output, format_names=format)
+def format(input, output, format, tab_size):
+    api.format(in_file=input, out_file=output, format_names=format, tab_size=tab_size)
     sys.exit(ExitCode.OK)
 
 

@@ -72,4 +72,13 @@ Either the INPUT or OUTPUT positional arguments can be replaced with a hyphen ``
 to be read from stdin or output to be written to stdout::
 
   $ intentionally-blank format --format=leading --format=visible infile.txt -
-  
+  """Model␣for␣aircraft␣flights."""↵
+  ↵
+  ↵
+  class␣Flight:↵
+  ␣␣␣␣"""A␣flight␣with␣a␣particular␣passenger␣aircraft."""↵
+  ␣␣␣␣↵
+  ␣␣␣␣def␣__init__(self,␣number,␣aircraft):↵
+  ␣␣␣␣␣␣␣␣if␣not␣number[:2].isalpha():↵
+  ␣␣␣␣␣␣␣␣␣␣␣␣raise␣ValueError(f"No␣airline␣code␣in␣'{number}'")↵
+  ␣␣␣␣␣␣␣␣␣␣␣␣↵
