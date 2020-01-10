@@ -21,4 +21,5 @@ class LeadingFormatter(Formatter):
                 yield line
                 active_indent = indent
             else:
-                yield f"{active_indent}\n"
+                end = "\n" if line.endswith("\n") else ""
+                yield f"{active_indent}{end}"

@@ -57,7 +57,7 @@ setup(
     # dependencies). You can install these using the following syntax,
     # for example:
     # $ pip install -e .[dev,test]
-    extras_require={"test": ["hypothesis", "pytest", "tox"], "dev": ["flake8", "autopep8"],},
+    extras_require={"test": ["hypothesis", "pytest", "tox"], "dev": ["black"],},
     entry_points={
         "console_scripts": ["intentionally-blank = intentionally_blank.cli:cli",],
         'intentionally_blank.formatter': [
@@ -65,6 +65,7 @@ setup(
             'leading = intentionally_blank.ext.formatters.leading:Formatter',
             'empty = intentionally_blank.ext.formatters.empty:Formatter',
             'visible = intentionally_blank.ext.formatters.visible:Formatter',
+            'eof-newline = intentionally_blank.ext.formatters.eof_newline:Formatter',
         ]
     },
     long_description=LONG_DESCRIPTION,

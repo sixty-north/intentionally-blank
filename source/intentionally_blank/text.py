@@ -1,6 +1,7 @@
 import re
 
 from asq import query
+from more_itertools import tail
 
 LEADING_PATTERN = r"^(\s*)(.*)$"
 LEADING_REGEX = re.compile(LEADING_PATTERN)
@@ -33,3 +34,25 @@ def chomp(s):
     if s.endswith("\r\n"): return s[:-2]
     if s.endswith("\n") or s.endswith("\r"): return s[:-1]
     return s
+
+
+def split_on_newlines(s, keepends=False):
+    "Split on newline only (not other characters, like str.splitlines()."
+    if len(s) == 0:
+        return
+    lines = chomp(s).split("\n")
+
+    for index, line in enumerate(lines):
+        if keepends:
+            if index == len(lines) - 1:
+                # Last line
+                if s.endswith("\n"):
+                    end = "\n"
+                else:
+                    end = ""
+            else:
+                end = "\n"
+        else:
+            end = ""
+            
+        yield f"{line}{end}"
