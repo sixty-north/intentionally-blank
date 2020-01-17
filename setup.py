@@ -66,6 +66,7 @@ setup(
             'empty = intentionally_blank.ext.formatters.empty:Formatter',
             'visible = intentionally_blank.ext.formatters.visible:Formatter',
             'eof-newline = intentionally_blank.ext.formatters.eof_newline:Formatter',
+            'python-leading = intentionally_blank.ext.formatters.python_leading:Formatter'
         ]
     },
     long_description=LONG_DESCRIPTION,

@@ -8,12 +8,14 @@ from intentionally_blank.text import strip_lines
 
 INTENTIONALLY_BLANK_FORMATTER = "intentionally_blank.formatter"
 
+DEFAULT_TAB_SIZE = 4
+
 
 class Formatter(Extension):
 
-    def __init__(self, name, tab_size):
+    def __init__(self, name, tab_size=None):
         super().__init__(name)
-        self._tab_size = tab_size
+        self._tab_size = tab_size or DEFAULT_TAB_SIZE
         
     @property
     def tab_size(self):
@@ -46,7 +48,7 @@ class FormatterExtensionError(ExtensionError):
     pass
 
 
-def create_formatter(formatter_name, tab_size):
+def create_formatter(formatter_name, tab_size=None):
         driver = create_extension(
             kind="formatter",
             namespace=INTENTIONALLY_BLANK_FORMATTER,
@@ -59,3 +61,5 @@ def create_formatter(formatter_name, tab_size):
 
 def formatter_names():
     return list_extensions(INTENTIONALLY_BLANK_FORMATTER)
+
+
