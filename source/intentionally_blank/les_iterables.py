@@ -41,11 +41,6 @@ def ensure_contains(items, ensured_item):
         yield ensured_item
         
         
-def tail(items, n):
-    return Tail(items, n)
-   
-    
-
 def partition_tail(items, n):
     """Lazily partition an iterable series into a head, and tail of no more than specified length.
     
