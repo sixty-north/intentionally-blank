@@ -23,22 +23,22 @@ To get command-line help, use the ``--help`` option::
     --help                          Show this message and exit.
   
   Commands:
-    describe-formatter
+    describe-format
     format
-    list-formatters
+    list-formats
 
 
-To list the available formatters, used the ``list-formatters`` command::
+To list the available formatters, used the ``list-formats`` command::
 
-  $ intentionally-blank list-formatters
+  $ intentionally-blank list-formats
   empty
   identity
   leading
   visible
 
-To describe the action of particular formatter, use the ``describe-formatter`` command::
+To describe the action of particular formatter, use the ``describe-format`` command::
 
-  $ intentionally-blank describe-formatter --format=leading
+  $ intentionally-blank describe-format --format=leading
   Blank lines have leading whitespace equal to that on the previous non-blank line.
   
 To actually reformat a text file, we can use the ``format`` command. To get help on a particular

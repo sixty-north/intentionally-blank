@@ -53,15 +53,15 @@ def format(input, output, format, tab_size=None):
     sys.exit(ExitCode.OK)
 
 
-@cli.command(name="list-formatters")
-def list_formatters():
-    api.list_formatters()
+@cli.command(name="list-formats")
+def list_format():
+    api.list_formats()
     return ExitCode.OK
 
 
-@cli.command(name="describe-formatter")
+@cli.command(name="describe-format")
 @click.option("--format", type=click.Choice(fmt_names, case_sensitive=True))
-def describe_formatter(format):
+def describe_format(format):
     api.describe_formatter(format_name=format)
     return ExitCode.OK
 

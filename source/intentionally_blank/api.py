@@ -23,7 +23,7 @@ def format(in_file, out_file, format_names, tab_size=None):
         )
     )
 
-def list_formatters(file=None):
+def list_formats(file=None):
     file = file or sys.stdout
     for name in formatter_names():
         print(name, file=file)
