@@ -46,10 +46,16 @@ def cli(verbosity):
 @cli.command(name="format")
 @click.option("--format", type=click.Choice(fmt_names, case_sensitive=True), multiple=True)
 @click.option("--tab-size", callback=_validate_optional_positive_integer, help="Tab size in spaces")
-@click.argument('input', type=click.File('rt'))
-@click.argument('output', type=click.File('wt'))
-def format(input, output, format, tab_size=None):
-    api.format(in_file=input, out_file=output, format_names=format, tab_size=tab_size)
+@click.option("--in-place", "-i", is_flag=True, default=False)
+# TODO: Use nargs here 
+@click.argument('input', type=click.Path(exists=True, dir_okay=False, allow_dash=True, resolve_path=True))
+@click.argument('output', type=click.Path(dir_okay=False, allow_dash=True, resolve_path=True), required=False)
+def format(input, output, format, tab_size=None, in_place=False):
+    try:
+        api.format_path(in_filepath=input, out_filepath=output, format_names=format, tab_size=tab_size, in_place=in_place)
+    except ValueError as e:
+        print(e, file=sys.stderr)
+        sys.exit(ExitCode.NOINPUT)
     sys.exit(ExitCode.OK)
 
 
