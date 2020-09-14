@@ -80,7 +80,7 @@ class Flight:
             raise ValueError(f"Seat {to_seat} already occupied")
 
         self._seating[to_row][to_letter] = self._seating[from_row][from_letter]
-        self._seating[from_row][from_letter] = None 
+        self._seating[from_row][from_letter] = None
 
     def num_available_seats(self):
         sum(

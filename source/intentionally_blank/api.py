@@ -11,9 +11,9 @@ from intentionally_blank.les_iterables import ensure_contains
 logger = logging.getLogger(__name__)
 
 
-def format_path(*, in_filepath, out_filepath=None, format_names=(), tab_size=None, in_place=False):
-    """Format the contents and in_filepath and place the results in out_filepath.
-    
+def format_from_path_to_path(*, in_filepath, out_filepath=None, format_names=(), tab_size=None, in_place=False):
+    """Format the contents of in_filepath and place the results in out_filepath.
+
     Raises:
         ValueError: If the output filepath is not provided when not processing in-place.
     """
@@ -37,21 +37,25 @@ def format_path(*, in_filepath, out_filepath=None, format_names=(), tab_size=Non
     in_lines = read_lines(in_filepath)
 
     with open_path(out_filepath, "wt") as out_file:
-        transform(in_lines, out_file, formatters)
+        format_from_lines_to_file(in_lines, out_file, formatters, tab_size=None)
 
 
-def format(in_file, out_file, format_names, tab_size=None):
+def format_from_file_to_file(in_file, out_file, format_names, tab_size=None):
+    in_lines = list(in_file)
+    format_from_lines_to_file(in_lines, out_file, format_names, tab_size)
+
+
+def format_from_lines_to_file(in_lines, out_file, format_names, tab_size=None):
+    out_file.writelines(format_from_lines_to_lines(in_lines, format_names, tab_size))
+
+
+def format_from_lines_to_lines(in_lines, format_names, tab_size=None):
     formatters = [
         create_formatter(format_name, tab_size)
         for format_name in ensure_contains(format_names, "identity")
     ]
     logger.debug("formatters = %s", formatters)
-    in_lines = list(in_file)
-    transform(in_lines, out_file, formatters)
-
-
-def transform(in_lines, out_file, formatters):
-    out_file.writelines(transform_lines(formatters, in_lines))
+    return transform_lines(formatters, in_lines)
 
 
 def transform_lines(formatters, in_lines):

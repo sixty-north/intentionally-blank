@@ -7,27 +7,34 @@ DATA_DIRPATH = Path(__file__).parent / "data"
 
 @pytest.fixture()
 def airtravel_empty_file():
-    airtravel_filepath = DATA_DIRPATH / "airtravel_empty.py"
+    airtravel_filepath = DATA_DIRPATH / "airtravel_empty.py.txt"
     with open(airtravel_filepath, "rt", encoding="utf8") as f:
         yield f
-        
-        
+
+
 @pytest.fixture()
 def airtravel_ragged_file():
-    airtravel_filepath = DATA_DIRPATH / "airtravel_ragged.py"
+    airtravel_filepath = DATA_DIRPATH / "airtravel_ragged.py.txt"
     with open(airtravel_filepath, "rt", encoding="utf8") as f:
         yield f
-        
-        
+
+
 @pytest.fixture()
 def airtravel_without_eof_newline_file():
-    airtravel_filepath = DATA_DIRPATH / "airtravel_without_eof_newline.py"
+    airtravel_filepath = DATA_DIRPATH / "airtravel_without_eof_newline.py.txt"
     with open(airtravel_filepath, "rt", encoding="utf8") as f:
         yield f
-        
-        
+
+
 @pytest.fixture()
 def airtravel_leading_file():
-    airtravel_filepath = DATA_DIRPATH / "airtravel_leading.py"
+    airtravel_filepath = DATA_DIRPATH / "airtravel_leading.py.txt"
+    with open(airtravel_filepath, "rt", encoding="utf8") as f:
+        yield f
+
+
+@pytest.fixture()
+def airtravel_trailing_file():
+    airtravel_filepath = DATA_DIRPATH / "airtravel_trailing.py.txt"
     with open(airtravel_filepath, "rt", encoding="utf8") as f:
         yield f
