@@ -49,6 +49,12 @@ def format_from_lines_to_file(in_lines, out_file, format_names, tab_size=None):
     out_file.writelines(format_from_lines_to_lines(in_lines, format_names, tab_size))
 
 
+def format_str_to_str(in_text, format_names, tab_size=None):
+    in_lines = in_text.splitlines(keepends=True)
+    out_lines = format_from_lines_to_lines(in_lines, format_names, tab_size)
+    return ''.join(out_lines)
+
+
 def format_from_lines_to_lines(in_lines, format_names, tab_size=None):
     formatters = [
         create_formatter(format_name, tab_size)
