@@ -47,7 +47,7 @@ setup(
         "Development Status :: 4 - Beta",
         "Environment :: Console",
         "Intended Audience :: Information Technology",
-        "License :: MIT",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.7",
     ],
@@ -57,7 +57,7 @@ setup(
     # dependencies). You can install these using the following syntax,
     # for example:
     # $ pip install -e .[dev,test]
-    extras_require={"test": ["hypothesis", "pytest", "tox"], "dev": ["black"],},
+    extras_require={"test": ["hypothesis", "pytest", "tox"], "dev": ["black", "bumpversion", "twine"],},
     entry_points={
         "console_scripts": ["intentionally-blank = intentionally_blank.cli:cli",],
         'intentionally_blank.formatter': [
