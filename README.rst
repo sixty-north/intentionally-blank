@@ -9,19 +9,19 @@ Synopsis
 For the purposes of this tool, a "blank line" is a line containing only whitespace characters.
 
 *Intentionally Blank* can apply one or more formatters to a text file for the purposes of modifying
-the arrangement or representation of whitespace. 
+the arrangement or representation of whitespace.
 
 To get command-line help, use the ``--help`` option::
 
   $ intentionally-blank --help
   Usage: intentionally-blank [OPTIONS] COMMAND [ARGS]...
-  
+
   Options:
     --verbosity [CRITICAL|ERROR|WARNING|INFO|DEBUG|NOTSET]
                                     The logging level to use.
     --version                       Show the version and exit.
     --help                          Show this message and exit.
-  
+
   Commands:
     describe-format
     format
@@ -40,18 +40,18 @@ To describe the action of particular formatter, use the ``describe-format`` comm
 
   $ intentionally-blank describe-format --format=leading
   Blank lines have leading whitespace equal to that on the previous non-blank line.
-  
+
 To actually reformat a text file, we can use the ``format`` command. To get help on a particular
 command, like ``format``, use the command and the ``--help`` option::
 
   $ intentionally-blank format --help
   Usage: intentionally-blank format [OPTIONS] INPUT OUTPUT
-  
+
   Options:
     --format [empty|identity|leading|visible]
     --help                          Show this message and exit.
 
-  
+
 Now, use the ``format`` command to adjust whitespace::
 
   $ intentionally-blank format --format=leading infile.txt outfile.txt
@@ -82,3 +82,14 @@ to be read from stdin or output to be written to stdout::
   ␣␣␣␣␣␣␣␣if␣not␣number[:2].isalpha():↵
   ␣␣␣␣␣␣␣␣␣␣␣␣raise␣ValueError(f"No␣airline␣code␣in␣'{number}'")↵
   ␣␣␣␣␣␣␣␣␣␣␣␣↵
+
+
+## CI/CD
+
+LOL.
+
+To release, there is a short manual process:
+
+    $ bumpversion patch
+    $ python setup.py sdist bdist_wheel
+    $ twine upload dist/* --config-file=path/to/sixty-north.pypirc
