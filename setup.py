@@ -42,7 +42,7 @@ setup(
     license="MIT",
     keywords="",
     package_dir={"": SOURCE},
-    url="https://bitbucket.org/sixty-north/intentionally-blank",
+    url="https://github.com/sixty-north/intentionally-blank",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
