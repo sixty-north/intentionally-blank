@@ -34,7 +34,7 @@ def format_from_path_to_path(*, in_filepath, out_filepath=None, format_names=(),
 
     logger.debug("formatters = %s", formatters)
 
-    in_lines = read_lines(in_filepath)
+    in_lines = _read_lines(in_filepath)
 
     with open_path(out_filepath, "wt") as out_file:
         format_from_lines_to_file(in_lines, out_file, formatters, tab_size=None)
@@ -90,18 +90,16 @@ def open_path(path, mode, encoding=None, newline=None):
             f.close()
 
 
-def read_lines(in_filepath):
+def _read_lines(in_filepath):
     with open_path(in_filepath, "rt") as in_file:
         return list(in_file)
 
 
 def list_formats(file=None):
-    file = file or sys.stdout
-    for name in formatter_names():
-        print(name, file=file)
-
+    return list(formatter_names)
 
 def describe_formatter(format_name, file=None):
     file = file or sys.stdout
     formatter = create_formatter(format_name)
-    print(formatter.describe(), file=file)
+    return formatter.describe()
+

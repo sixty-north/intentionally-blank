@@ -61,14 +61,17 @@ def format(input, output, format, tab_size=None, in_place=False):
 
 @cli.command(name="list-formats")
 def list_format():
-    api.list_formats()
+    names = api.list_formats()
+    for name in names():
+        print(name)
     return ExitCode.OK
 
 
 @cli.command(name="describe-format")
 @click.option("--format", type=click.Choice(fmt_names, case_sensitive=True), required=True)
 def describe_format(format):
-    api.describe_formatter(format_name=format)
+    description = api.describe_formatter(format_name=format)
+    print(description)
     return ExitCode.OK
 
 
