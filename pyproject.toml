@@ -10,7 +10,7 @@ testpaths = [
 ]
 norecursedirs="tests/helpers"
 log_cli = true
-log_cli_level = "DEBUG"
+log_cli_level = "WARNING"
 
 [tool.black]
 line-length = 100
