@@ -52,7 +52,7 @@ setup(
         "Programming Language :: Python :: 3.7",
     ],
     include_package_data=True,
-    install_requires=["click", "exit_codes", "stevedore", "asq"],
+    install_requires=["click", "exit_codes", "stevedore", "asq", "more-itertools"],
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
     # for example:
