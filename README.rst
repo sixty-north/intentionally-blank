@@ -3,6 +3,10 @@ Intentionally Blank
 
 Canonicalise the leading indentation of blank lines in text files.
 
+.. image:: https://github.com/sixty-north/intentionally-blank/workflows/CI/badge.svg?branch=master
+     :target: https://github.com/sixty-north/intentionally-blank/actions?workflow=CI
+     :alt: CI Status
+
 Synopsis
 --------
 
