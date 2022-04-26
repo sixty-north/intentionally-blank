@@ -66,7 +66,7 @@ def list_format():
 
 
 @cli.command(name="describe-format")
-@click.option("--format", type=click.Choice(fmt_names, case_sensitive=True))
+@click.option("--format", type=click.Choice(fmt_names, case_sensitive=True), required=True)
 def describe_format(format):
     api.describe_formatter(format_name=format)
     return ExitCode.OK
