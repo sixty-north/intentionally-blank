@@ -7,6 +7,18 @@ Canonicalise the leading indentation of blank lines in text files.
      :target: https://github.com/sixty-north/intentionally-blank/actions?workflow=CI
      :alt: CI Status
 
+Installation
+------------
+
+The ``intentionally-blank`` package is available on the Python Package Index (PyPI):
+
+.. image:: https://badge.fury.io/py/intentionally-blank.svg
+    :target: https://badge.fury.io/py/intentionally-blank
+
+The package supports Python 3 only. To install::
+
+  $ python -m pip install intentionally-blank
+
 Synopsis
 --------
 
@@ -86,14 +98,3 @@ to be read from stdin or output to be written to stdout::
   ␣␣␣␣␣␣␣␣if␣not␣number[:2].isalpha():↵
   ␣␣␣␣␣␣␣␣␣␣␣␣raise␣ValueError(f"No␣airline␣code␣in␣'{number}'")↵
   ␣␣␣␣␣␣␣␣␣␣␣␣↵
-
-
-## CI/CD
-
-LOL.
-
-To release, there is a short manual process:
-
-    $ bumpversion patch
-    $ python setup.py sdist bdist_wheel
-    $ twine upload dist/* --config-file=path/to/sixty-north.pypirc
