@@ -1,8 +1,4 @@
 from intentionally_blank.formatter import Formatter
-from intentionally_blank.text import split_indent, is_blank_line
-
-
-from intentionally_blank.formatter import Formatter
 
 
 class RemoveTrailingFormatter(Formatter):
