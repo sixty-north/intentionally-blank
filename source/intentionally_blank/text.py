@@ -76,5 +76,5 @@ def split_on_newlines(s, keepends=False):
                 end = "\n"
         else:
             end = ""
-            
+
         yield f"{line}{end}"
