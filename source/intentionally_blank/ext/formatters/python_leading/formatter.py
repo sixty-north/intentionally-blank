@@ -6,12 +6,12 @@ from intentionally_blank.text import split_indent, is_blank_line
 class PythonLeadingFormatter(Formatter):
     """A trailing colon introduces a new block. Blank lines have leading white space.
     """
-    
+
     def format(self, lines):
         """
         Args:
             lines: An iterable series of strings, each with a newline terminator.
-        
+
         Yields:
             An iterable series of strings, each with a newline terminator.
         """
@@ -29,7 +29,7 @@ class PythonLeadingFormatter(Formatter):
             else:
                 assert line.endswith("\n")
                 yield f"{active_indent}\n"
-                
+
         # tail will contain at most one line
         for line in tail:
             indent, text = split_indent(line)
@@ -41,4 +41,3 @@ class PythonLeadingFormatter(Formatter):
                     yield f"{active_indent}{end}"
                 else:
                     yield end
-        

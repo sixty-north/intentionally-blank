@@ -5,12 +5,12 @@ from intentionally_blank.text import split_indent, is_blank_line
 class EmptyBlankLineFormatter(Formatter):
     """Blank lines have no whitespace other than the terminating newline.
     """
-    
+
     def format(self, lines):
         """
         Args:
             lines: An iterable series of strings, each with a newline terminator.
-        
+
         Yields:
             An iterable series of strings, each with a newline terminator.
         """
