@@ -7,6 +7,19 @@ LEADING_PATTERN = r"^(\s*)(.*)$"
 LEADING_REGEX = re.compile(LEADING_PATTERN)
 
 
+def is_blank_line(line: str) -> bool:
+    """Determine whether a line contains any non-whitespace characters.
+
+    Args:
+        line: The string to be tested.
+
+    Returns:
+        True if the string is empty or contains only whitespace, otherwise False.
+    """
+    indent, text = split_indent(line)
+    return is_partitioned_line_blank(indent, text)
+
+
 def split_indent(line):
     m = LEADING_REGEX.match(line)
     assert m is not None
