@@ -6,7 +6,7 @@ from contextlib import contextmanager
 from functools import reduce
 
 from intentionally_blank.formatter import create_formatter, formatter_names
-from intentionally_blank.les_iterables import ensure_contains
+from les_iterables import ensure_contains
 
 logger = logging.getLogger(__name__)
 
