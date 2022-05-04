@@ -1,6 +1,6 @@
 from intentionally_blank.formatter import Formatter
 from intentionally_blank.les_iterables import partition_tail
-from intentionally_blank.text import split_indent, is_blank_line
+from intentionally_blank.text import split_indent, is_partitioned_line_blank
 
 
 class PythonLeadingFormatter(Formatter):
@@ -21,7 +21,7 @@ class PythonLeadingFormatter(Formatter):
         active_indent = ""
         for line in head:
             indent, text = split_indent(line)
-            if not is_blank_line(indent, text):
+            if not is_partitioned_line_blank(indent, text):
                 yield line
                 active_indent = indent
                 if line.strip().endswith(":"):
@@ -33,7 +33,7 @@ class PythonLeadingFormatter(Formatter):
         # tail will contain at most one line
         for line in tail:
             indent, text = split_indent(line)
-            if not is_blank_line(indent, text):
+            if not is_partitioned_line_blank(indent, text):
                 yield line
             else:
                 end = "\n" if line.endswith("\n") else ""

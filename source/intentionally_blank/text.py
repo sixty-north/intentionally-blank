@@ -14,7 +14,16 @@ def split_indent(line):
     return indent, text
 
 
-def is_blank_line(index, text):
+def is_partitioned_line_blank(indent: str, text: str) -> bool:
+    """Determine whether an indent-partitioned line is blank.
+
+    Args:
+        indent: The leading indent of a line. May be empty.
+        text: Text following the leading indent. May be empty.
+
+    Returns:
+        True if no text follows the indent.
+    """
     return len(text) == 0
 
 

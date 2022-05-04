@@ -1,5 +1,5 @@
 from intentionally_blank.formatter import Formatter
-from intentionally_blank.text import split_indent, is_blank_line
+from intentionally_blank.text import split_indent, is_partitioned_line_blank
 
 
 class EmptyBlankLineFormatter(Formatter):
@@ -16,7 +16,7 @@ class EmptyBlankLineFormatter(Formatter):
         """
         for line in lines:
             indent, text = split_indent(line)
-            if not is_blank_line(indent, text):
+            if not is_partitioned_line_blank(indent, text):
                 yield line
             else:
                 yield "\n"
