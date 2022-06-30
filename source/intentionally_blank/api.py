@@ -27,17 +27,12 @@ def format_from_path_to_path(*, in_filepath, out_filepath=None, format_names=(),
     if in_place and (out_filepath is None):
         out_filepath = in_filepath
 
-    formatters = [
-        create_formatter(format_name, tab_size)
-        for format_name in ensure_contains(format_names, "identity")
-    ]
-
-    logger.debug("formatters = %s", formatters)
+    logger.debug("formatters = %s", format_names)
 
     in_lines = _read_lines(in_filepath)
 
     with open_path(out_filepath, "wt") as out_file:
-        format_from_lines_to_file(in_lines, out_file, formatters, tab_size=None)
+        format_from_lines_to_file(in_lines, out_file, format_names, tab_size=None)
 
 
 def format_from_file_to_file(in_file, out_file, format_names, tab_size=None):

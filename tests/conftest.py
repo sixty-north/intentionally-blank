@@ -45,3 +45,8 @@ def airtravel_with_trailing_empty_lines_file():
     airtravel_filepath = DATA_DIRPATH / "airtravel_with_trailing_empty_lines.py.txt"
     with open(airtravel_filepath, "rt", encoding="utf8") as f:
         yield f
+
+
+@pytest.fixture()
+def flatten_010_filepath() -> Path:
+    return DATA_DIRPATH/ "flatten_010.py"
