@@ -62,7 +62,7 @@ def format(input, output, format, tab_size=None, in_place=False):
 @cli.command(name="list-formats")
 def list_format():
     names = api.list_formats()
-    for name in names():
+    for name in names:
         print(name)
     return ExitCode.OK
 

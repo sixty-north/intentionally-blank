@@ -96,7 +96,7 @@ def _read_lines(in_filepath):
 
 
 def list_formats():
-    return list(formatter_names)
+    return list(formatter_names())
 
 
 def describe_formatter(format_name):
