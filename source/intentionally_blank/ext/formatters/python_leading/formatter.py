@@ -1,5 +1,6 @@
+from les_iterables import partition_tail
+
 from intentionally_blank.formatter import Formatter
-from intentionally_blank.les_iterables import partition_tail
 from intentionally_blank.text import split_indent, is_partitioned_line_blank
 
 
