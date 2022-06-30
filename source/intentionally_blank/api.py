@@ -95,11 +95,11 @@ def _read_lines(in_filepath):
         return list(in_file)
 
 
-def list_formats(file=None):
+def list_formats():
     return list(formatter_names)
 
-def describe_formatter(format_name, file=None):
-    file = file or sys.stdout
+
+def describe_formatter(format_name):
     formatter = create_formatter(format_name)
     return formatter.describe()
 
